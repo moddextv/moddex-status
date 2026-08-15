@@ -1,0 +1,17 @@
+<div class="timeline" role="img" aria-label="{{ ariaLabel }}">
+{{# bars }}
+<i class="{{ className }}"{{# hasDown }} style="--down:{{ down }}%"{{/ hasDown }} data-timestamp="{{ timestamp }}" data-detail="{{ detail }}" title="{{ title }}"></i>
+{{/ bars }}
+</div>
+<!-- The mark's own notation on the two ends of the window. Top-left opens and
+     bottom-right closes, 180 degrees apart, which is what the glyph means:
+     one span read from both ends.
+
+     Deliberately inheriting --text-dim rather than taking the mark's green and
+     pink. On this page those two hues already mean up and down, and a green
+     corner beside a green status dot would be read as a second verdict. The
+     notation here is the shape; the colour is spoken for. -->
+<div class="range" aria-hidden="true">
+	<span><span class="corner corner-tl"></span>{{# range }}<span class="{{ className }}">{{ label }}</span>{{/ range }} ago</span>
+	<span>now<span class="corner corner-br"></span></span>
+</div>

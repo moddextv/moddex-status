@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark light">
+<meta name="darkreader-lock" content="true">
+<meta name="description" content="Live availability of the moddex services.">
+<!-- "<what it is> | moddex", the shape moddex.tv already uses for every page. -->
+<title>status | moddex</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script>
+	// Inline and blocking, unlike script.js below, which is deferred: the
+	// attribute has to land on <html> before the first paint or the reader
+	// watches the page correct its own colour.
+	//
+	// Nothing is written when no choice has been stored, and that is the point.
+	// With no attribute the prefers-color-scheme block in styles.css answers
+	// instead, so the page has always followed the reading environment and
+	// still does if this script never runs.
+	try {
+		var storedTheme = localStorage.getItem('moddex-status-theme');
+		if (storedTheme === 'light' || storedTheme === 'dark') {
+			document.documentElement.dataset.theme = storedTheme;
+		}
+	} catch (err) {
+		// localStorage throws rather than returning null when site data is
+		// blocked. Without a stored choice the page is still correct.
+	}
+</script>
+<script src="/script.js" defer></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="brand">
+			<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+				<path class="mark-in" d="M4 4 H18 V10 H10 V18 H4 Z"/>
+				<path class="mark-out" d="M28 28 H14 V22 H22 V14 H28 Z"/>
+			</svg>
+			<b>moddex</b><span>status</span>
+
+			<!-- Both glyphs ship in the markup and css shows one, so the button
+			     is right before script.js runs and stays right without it. -->
+			<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+				<svg viewBox="0 0 24 24" class="icon-sun" aria-hidden="true">
+					<circle cx="12" cy="12" r="4"/>
+					<path d="M12 2v2"/>
+					<path d="M12 20v2"/>
+					<path d="m4.93 4.93 1.41 1.41"/>
+					<path d="m17.66 17.66 1.41 1.41"/>
+					<path d="M2 12h2"/>
+					<path d="M20 12h2"/>
+					<path d="m6.34 17.66-1.41 1.41"/>
+					<path d="m19.07 4.93-1.41 1.41"/>
+				</svg>
+				<svg viewBox="0 0 24 24" class="icon-moon" aria-hidden="true">
+					<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+				</svg>
+			</button>
+		</div>
+		{{> banner }}
+		<div class="services">
+			{{# services }}
+				{{> service }}
+			{{/ services }}
+		</div>
+		{{> incidents }}
+		{{> footnote }}
+	</div>
+</body>
+</html>
