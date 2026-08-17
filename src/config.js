@@ -57,6 +57,13 @@ export const config = {
       blurb: 'Live role events',
       url: optional('MONITOR_EVENTSUB_URL', 'https://api.moddex.tv/v1/eventsub/health'),
       service: 'moddex-api'
+    },
+    {
+      id: 'moddex-discord',
+      label: 'discord.moddex.tv',
+      blurb: 'Community bot',
+      url: optional('MONITOR_DISCORD_URL', 'https://discord.moddex.tv/health'),
+      service: 'moddex-discord'
     }
   ]
 };
