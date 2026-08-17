@@ -60,8 +60,8 @@ export const config = {
     },
     {
       id: 'moddex-discord',
-      label: 'discord.moddex.tv',
-      blurb: 'Community bot',
+      label: 'discord bot',
+      blurb: 'Welcomes, boosts and badge roles',
       url: optional('MONITOR_DISCORD_URL', 'https://discord.moddex.tv/health'),
       service: 'moddex-discord'
     }
