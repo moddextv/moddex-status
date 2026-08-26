@@ -1,0 +1,12 @@
+<article class="service {{ state }}">
+	<header>
+		<span class="dot"></span>
+		<div class="who">
+			<h2>{{ label }}</h2>
+			<p class="aside">{{ blurb }}</p>
+		</div>
+		<span class="state">{{ stateLabel }}</span>
+	</header>
+	{{> timeline }}
+	<footer>{{# facts }}<span class="fact{{# aside }} aside{{/ aside }}">{{# hasError }}<span class="error">{{ error }}</span>{{/ hasError }}{{# hasValue }}<b>{{ value }}</b> {{/ hasValue }}{{ text }}</span>{{/ facts }}</footer>
+</article>

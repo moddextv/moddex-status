@@ -1,0 +1,19 @@
+<section class="incidents">
+	<h3>Recent incidents</h3>
+{{# hasIncidents }}
+	<ol>
+{{# incidents }}
+		<li class="{{ outcome }}">
+			<span class="dot"></span>
+			<div>
+				<p class="what"><b>{{ label }}</b><span class="duration">{{ duration }}</span></p>
+				<p class="when"><time data-timestamp="{{ timestamp }}" datetime="{{ isoTime }}">{{ utcTime }}</time><span class="separator">·</span>{{ reason }}</p>
+			</div>
+		</li>
+{{/ incidents }}
+	</ol>
+{{/ hasIncidents }}
+{{^ hasIncidents }}
+	<p class="quiet">Nothing in the last {{ incidentSpan }}.</p>
+{{/ hasIncidents }}
+</section>

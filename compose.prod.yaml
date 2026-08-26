@@ -1,0 +1,16 @@
+name: moddex-status
+services:
+  app:
+    image: ${IMAGE:-ghcr.io/moddextv/moddex-status}:${IMAGE_TAG:-latest}
+    env_file: .env
+    environment:
+      DB_PATH: /data/status.db
+    volumes:
+      - history:/data
+    networks: [web, internal]
+    restart: unless-stopped
+volumes:
+  history:
+networks:
+  web: { external: true }
+  internal:

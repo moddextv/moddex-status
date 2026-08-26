@@ -1,0 +1,8 @@
+# prettier reads .gitignore as well, so data/ and node_modules/ need no repeat
+# here. This file is only for what git tracks but prettier must not rewrite.
+
+# upstream code, kept diffable against upstream — CONVENTIONS §4
+src/vendor/
+
+# npm owns this file and rewrites it on every install
+package-lock.json
