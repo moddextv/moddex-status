@@ -1,6 +1,6 @@
 {
   "name": "moddex-status",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "description": "Uptime and health for the moddex services, served at status.moddex.tv",
   "type": "module",
